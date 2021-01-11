@@ -1,15 +1,25 @@
 import * as React from 'react'
 
-type Props = {
-  color: string,
-  name: string
+enum Mark {
+    Crewmate = 'crewmate',
+    Impostor = 'impostor',
+    Gray = 'gray'
 }
 
-const Crew = ({color, name}: Props) => (
+type Props = {
+  color: string,
+  name: string,
+  mark: Mark
+}
+
+const Crew = ({color, name, mark}: Props) => (
     <li>
         <div>
             <p>{name}</p>
             {color}
+            <p>
+                {mark}
+            </p>
         </div>
     </li>
 )
