@@ -9,7 +9,7 @@ type Props = {
 const Crew = ({color, name}: Props) => (
     <Container >
         <Header>
-            <Square style={{"background-color": color}}></Square>
+            <Square style={{backgroundColor: color}}></Square>
             <HeaderText>{name}</HeaderText>
         </Header>
 
