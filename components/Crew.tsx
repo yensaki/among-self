@@ -8,10 +8,10 @@ type Props = {
 
 const Crew = ({color, name}: Props) => (
     <Container >
-        <div>
-            <div>{name}</div>
+        <Header>
             <Square style={{"background-color": color}}></Square>
-        </div>
+            <HeaderText>{name}</HeaderText>
+        </Header>
 
         <div>
             <RangeSlider type="range" list="range-list"/>
@@ -35,9 +35,21 @@ const Container = styled.li`
     padding: 5px;
 `
 
+const Header = styled.div`
+    display: flex;
+`
+
 const Square = styled.div`
+    border-radius: 5px;
     width: 30px;
     height: 30px;
+    margin: 5px;    
+`
+
+const HeaderText = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 
 const RangeSlider = styled.input`
