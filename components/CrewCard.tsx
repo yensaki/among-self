@@ -6,7 +6,7 @@ type Props = {
   name: string,
 }
 
-const Crew = ({color, name}: Props) => (
+const CrewCard = ({color, name}: Props) => (
     <Container >
         <Header>
             <Square style={{backgroundColor: color}}></Square>
@@ -56,4 +56,4 @@ const RangeSlider = styled.input`
     width: 100%;
 `
 
-export default Crew
+export default CrewCard

@@ -1,14 +1,33 @@
 import Layout from '../components/Layout'
-import Crew from '../components/Crew'
+import CrewCard from '../components/CrewCard'
+import { useState } from 'react'
 
-const IndexPage = () => (
-  <Layout title="Among Self">
+const IndexPage = () => {
+  // const colors = [
+  //   "red",
+  //   "blue",
+  //   "green",
+  //   "pink",
+  //   "orange",
+  //   "yellow",
+  //   "black",
+  //   "white",
+  //   "purple",
+  //   "brown",
+  //   "cyan",
+  //   "lime"
+  // ]
+  // const defaultCrews = colors.map()
+  // const [crews, setCrews] = useState(defaultCrews)
+  return (
+    <Layout title="Among Self">
     <h1>Among Self</h1>
     <ul>
-      <Crew color="red" name="aaa"></Crew>
-      <Crew color="blue" name="bbb"></Crew>
+      <CrewCard color="red" name="aaa" />
+      <CrewCard color="blue" name="bbb" />
     </ul>
   </Layout>
-)
+  )
+}
 
 export default IndexPage
