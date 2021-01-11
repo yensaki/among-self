@@ -20,6 +20,9 @@ const Crew = ({color, name, mark}: Props) => (
             <p>
                 {mark}
             </p>
+            <div>
+                <input type="range" />
+            </div>
         </div>
     </li>
 )
