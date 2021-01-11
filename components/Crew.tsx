@@ -1,13 +1,15 @@
 import * as React from 'react'
 
 type Props = {
-  color: string
+  color: string,
+  name: string
 }
 
-const Crew = ({color}: Props) => (
+const Crew = ({color, name}: Props) => (
     <li>
         <div>
-          {color}
+            <p>{name}</p>
+            {color}
         </div>
     </li>
 )

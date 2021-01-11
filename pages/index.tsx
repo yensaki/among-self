@@ -5,8 +5,8 @@ const IndexPage = () => (
   <Layout title="Among Self">
     <h1>Among Self</h1>
     <ul>
-      <Crew color="red"></Crew>
-      <Crew color="blue"></Crew>
+      <Crew color="red" name="aaa"></Crew>
+      <Crew color="blue" name="bbb"></Crew>
     </ul>
   </Layout>
 )
