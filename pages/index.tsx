@@ -1,18 +1,12 @@
 import Layout from '../components/Layout'
-
-const Crew = () => (
-  <li>
-    <div>
-      aaa
-    </div>
-  </li>
-)
+import Crew from '../components/Crew'
 
 const IndexPage = () => (
   <Layout title="Among Self">
     <h1>Among Self</h1>
     <ul>
-      <Crew></Crew>
+      <Crew color="red"></Crew>
+      <Crew color="blue"></Crew>
     </ul>
   </Layout>
 )
