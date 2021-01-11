@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
-import Link from 'next/link'
 import Head from 'next/head'
+import styled from 'styled-components'
 
 type Props = {
   children?: ReactNode
@@ -19,9 +19,20 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
     {children}
     <footer>
       <hr />
-      <span>I'm here to stay (Footer)</span>
+      <FooterDescription>
+        Among UsはInnerSloth社のゲームです。
+        <br />
+        本サービスはInnerSloth社とは無関係の非公式サービスです
+      </FooterDescription>
+      <FooterDescription>
+        powered by <a href="https://twitter.com/yensaki">yensaki</a>
+      </FooterDescription>
     </footer>
   </div>
 )
+
+const FooterDescription = styled.p`
+  font-size: 8px;
+`
 
 export default Layout
