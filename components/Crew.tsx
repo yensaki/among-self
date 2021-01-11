@@ -27,10 +27,12 @@ const Crew = ({color, name}: Props) => (
 )
 
 const Container = styled.li`
+    list-style: none;
     width: 320px;
     border: 1px solid #cee2f0;
     border-radius: 5px 5px;
     margin: 10px;
+    padding: 5px;
 `
 
 const Square = styled.div`
