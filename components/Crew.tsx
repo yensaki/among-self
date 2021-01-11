@@ -23,7 +23,14 @@ const Crew = ({color, name, mark}: Props) => (
                 {mark}
             </p>
             <div>
-                <input type="range" />
+                <input type="range" list="range-list"/>
+                <datalist id="range-list">
+                    <option value="0" />
+                    <option value="25" />
+                    <option value="50" />
+                    <option value="75" />
+                    <option value="100" />
+                </datalist>
             </div>
         </Container>
     </li>
