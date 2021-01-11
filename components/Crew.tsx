@@ -1,4 +1,5 @@
 import * as React from 'react'
+import styled from 'styled-components'
 
 enum Mark {
     Crewmate = 'crewmate',
@@ -14,7 +15,8 @@ type Props = {
 
 const Crew = ({color, name, mark}: Props) => (
     <li>
-        <div>
+        <Container >
+            <Square color={color}></Square>
             <p>{name}</p>
             {color}
             <p>
@@ -23,8 +25,20 @@ const Crew = ({color, name, mark}: Props) => (
             <div>
                 <input type="range" />
             </div>
-        </div>
+        </Container>
     </li>
 )
+
+type SquareProps = {
+    color: string
+}
+const Container = styled.div`
+`
+
+const Square = styled.div<SquareProps>`
+    width: 100px;
+    height: 100px;
+    background-color: red;
+`
 
 export default Crew
