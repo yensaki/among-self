@@ -14,9 +14,14 @@ const CrewForm = ({crew, onChange}: CrewProps) => {
       setFormCrew(newCrew)
       onChange(newCrew)
   }
+  const HandleClickInUse = () => {
+    const newCrew: Crew = {index: formCrew.index, color: formCrew.color, name: formCrew.name, inuse: !formCrew.inuse}
+    setFormCrew(newCrew)
+    onChange(newCrew)
+  }
   return (
-      <FormList>
-          <Square style={{backgroundColor: formCrew.color}} />
+      <FormList style={{backgroundColor: formCrew.inuse ? "white" : "gray"}}>
+          <Square onClick={HandleClickInUse} style={{backgroundColor: formCrew.color}} />
           <NameField type="text" name="name" value={formCrew.name} onChange={(e) => HandleChangeText(e)} />
       </FormList>
   )
@@ -37,7 +42,8 @@ const Square = styled.div`
     border-radius: 5px;
     width: 30px;
     height: 30px;
-    margin: 5px;    
+    margin: 5px;  
+    cursor: pointer;  
 `
 
 const NameField = styled.input`
