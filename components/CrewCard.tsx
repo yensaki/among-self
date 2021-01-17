@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react'
 import styled from 'styled-components'
 import Crew from '../models/crew'
 
@@ -8,11 +9,6 @@ type Props = {
 }
 
 const CrewCard = ({crew, onChange}: Props) => {
-  const statuses = [
-    "live",
-    "ejected",
-    "killed"
-  ]
   const [formCrew, setFormCrew] = useState(crew)
   const HandleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
       formCrew.status = e.target.value
@@ -20,9 +16,13 @@ const CrewCard = ({crew, onChange}: Props) => {
       setFormCrew(newCrew)
       onChange(newCrew)
   }
+  const [impostorRate, setImpostorRate] = useState(50)
+  const HandleImpostorRateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setImpostorRate(e.target.value)
+  }
 
     return (
-        <Container>
+        <Container style={{backgroundColor: `hsl(0,0%,${100 - impostorRate}%)`}}>
             <Header>
                 <Square style={{backgroundColor: formCrew.color}} />
                 <HeaderText>{formCrew.name}</HeaderText>
@@ -36,7 +36,7 @@ const CrewCard = ({crew, onChange}: Props) => {
             </Header>
 
             <div>
-                <RangeSlider type="range" list="range-list"/>
+                <RangeSlider type="range" list="range-list" onChange={HandleImpostorRateChange}/>
                 <datalist id="range-list">
                     <option value="0" />
                     <option value="25" />
