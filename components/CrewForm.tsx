@@ -34,22 +34,25 @@ const FormList = styled.li`
     display: flex;
     list-style: none;
     width: 280px;
+    height: 60px;
     border: 1px solid #cee2f0;
     border-radius: 5px 5px;
     margin: 10px;
-    padding: 5px;
+    padding: 15px 5px;
 `
 
 const Square = styled.div`
+    border: 2px solid #cee2f0;
     border-radius: 5px;
     width: 30px;
     height: 30px;
     margin: 5px;  
-    cursor: pointer;  
+    cursor: pointer;
 `
 
 const NameField = styled.input`
     width: 200px;
+    height: 30px;
 `
 
 export default CrewForm

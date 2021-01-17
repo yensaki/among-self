@@ -63,6 +63,7 @@ const Header = styled.div`
 `
 
 const Square = styled.div`
+    border: 2px solid #cee2f0;
     border-radius: 5px;
     width: 30px;
     height: 30px;
