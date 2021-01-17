@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Modal from 'react-modal'
 import CrewForm from '../components/CrewForm'
 import Crew from '../models/crew'
+import styled from 'styled-components'
 
 
 const IndexPage = () => {
@@ -52,27 +53,32 @@ const IndexPage = () => {
     <Layout title="Among Self">
       <h1>Among Self</h1>
       <button onClick={openModal}>Config</button>
-      <ul>
+      <CrewsUl>
         {crews.map((crew) => (
           crew.inuse ? <CrewCard color={crew.color} name={crew.name} key={crew.color} /> : ""
         ))}
-      </ul>
+      </CrewsUl>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
       >
         <button onClick={closeModal}>close</button>
         <form>
-            <ul>
+            <CrewsUl>
                 {crews.map((crew) => 
                   <CrewForm crew={crew} onChange={onChangeHandle} key={crew.index} />
                 )}
-            </ul>
+            </CrewsUl>
         </form>
       </Modal>
     </Layout>
   )
 }
+
+const CrewsUl = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+`
 
 // type CrewProps = {
 //   crew: Crew,

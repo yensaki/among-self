@@ -17,7 +17,7 @@ const CrewForm = ({crew, onChange}: CrewProps) => {
   return (
       <FormList>
           <Square style={{backgroundColor: formCrew.color}} />
-          <input type="text" name="name" value={formCrew.name} onChange={(e) => HandleChangeText(e)} />
+          <NameField type="text" name="name" value={formCrew.name} onChange={(e) => HandleChangeText(e)} />
       </FormList>
   )
 }
@@ -26,7 +26,7 @@ const CrewForm = ({crew, onChange}: CrewProps) => {
 const FormList = styled.li`
     display: flex;
     list-style: none;
-    width: 320px;
+    width: 280px;
     border: 1px solid #cee2f0;
     border-radius: 5px 5px;
     margin: 10px;
@@ -40,5 +40,8 @@ const Square = styled.div`
     margin: 5px;    
 `
 
+const NameField = styled.input`
+    width: 200px;
+`
 
 export default CrewForm
