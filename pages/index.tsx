@@ -68,7 +68,6 @@ const IndexPage = () => {
                   <CrewForm crew={crew} onChange={onChangeHandle} key={crew.index} />
                 )}
             </ul>
-            <input type="submit" value="決定" />
         </form>
       </Modal>
     </Layout>
