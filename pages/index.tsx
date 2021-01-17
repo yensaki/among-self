@@ -1,11 +1,8 @@
 import Layout from '../components/Layout'
 import CrewCard from '../components/CrewCard'
 import { useState } from 'react'
-
-interface Crew {
-  color: string,
-  name: string
-}
+import ConfigModal from '../components/ConfigModal'
+import Crew from '../models/crew'
 
 const IndexPage = () => {
   const colors = [
@@ -25,19 +22,25 @@ const IndexPage = () => {
 
   const defaultCrews: Crew[] = []
   colors.forEach((color) => {
-      const crew: Crew = {color: color, name: ""}
+      const crew: Crew = {color: color, name: "", inuse: true}
       defaultCrews.push(crew)
   })
   const [crews, setCrews] = useState(defaultCrews)
+
+  const updateCrews = (crews: Crew[]) => {
+      setCrews(crews)
+  }
+
   return (
     <Layout title="Among Self">
-    <h1>Among Self</h1>
-    <ul>
-      {crews.map((crew) => (
-        crew.color && <CrewCard color={crew.color} name={crew.name} />
-      ))}
-    </ul>
-  </Layout>
+      <h1>Among Self</h1>
+      <ul>
+        {crews.map((crew) => (
+          crew.inuse && <CrewCard color={crew.color} name={crew.name} key={crew.color} />
+        ))}
+      </ul>
+      <ConfigModal crews={defaultCrews} updateCrews={updateCrews} />
+    </Layout>
   )
 }
 

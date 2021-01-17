@@ -7,9 +7,9 @@ type Props = {
 }
 
 const CrewCard = ({color, name}: Props) => (
-    <Container >
+    <Container>
         <Header>
-            <Square style={{backgroundColor: color}}></Square>
+            <Square style={{backgroundColor: color}} />
             <HeaderText>{name}</HeaderText>
         </Header>
 

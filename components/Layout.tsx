@@ -19,20 +19,16 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
     {children}
     <footer>
       <hr />
-      <FooterDescription>
+      <p>
         Among UsはInnerSloth社のゲームです。
         <br />
         本サービスはInnerSloth社とは無関係の非公式サービスです
-      </FooterDescription>
-      <FooterDescription>
+      </p>
+      <p>
         powered by <a href="https://twitter.com/yensaki">yensaki</a>
-      </FooterDescription>
+      </p>
     </footer>
   </div>
 )
-
-const FooterDescription = styled.p`
-  font-size: 8px;
-`
 
 export default Layout
