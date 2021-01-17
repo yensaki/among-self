@@ -10,12 +10,14 @@ type CrewProps = {
 const CrewForm = ({crew, onChange}: CrewProps) => {
   const [formCrew, setFormCrew] = useState(crew)
   const HandleChangeText = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const newCrew: Crew = {index: formCrew.index, color: formCrew.color, name: e.target.value, inuse: formCrew.inuse}
+      formCrew.name = e.target.value
+      const newCrew: Crew = formCrew
       setFormCrew(newCrew)
       onChange(newCrew)
   }
   const HandleClickInUse = () => {
-    const newCrew: Crew = {index: formCrew.index, color: formCrew.color, name: formCrew.name, inuse: !formCrew.inuse}
+    formCrew.inuse = !formCrew.inuse
+    const newCrew: Crew = formCrew
     setFormCrew(newCrew)
     onChange(newCrew)
   }

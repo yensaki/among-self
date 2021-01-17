@@ -1,30 +1,53 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import Crew from '../models/crew'
 
 type Props = {
-  color: string,
-  name: string,
+  crew: Crew,
+  onChange: (crew: Crew) => void
 }
 
-const CrewCard = ({color, name}: Props) => (
-    <Container>
-        <Header>
-            <Square style={{backgroundColor: color}} />
-            <HeaderText>{name}</HeaderText>
-        </Header>
+const CrewCard = ({crew, onChange}: Props) => {
+  const statuses = [
+    "live",
+    "ejected",
+    "killed"
+  ]
+  const [formCrew, setFormCrew] = useState(crew)
+  const HandleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+      formCrew.status = e.target.value
+      const newCrew: Crew = formCrew
+      setFormCrew(newCrew)
+      onChange(newCrew)
+  }
 
-        <div>
-            <RangeSlider type="range" list="range-list"/>
-            <datalist id="range-list">
-                <option value="0" />
-                <option value="25" />
-                <option value="50" />
-                <option value="75" />
-                <option value="100" />
-            </datalist>
-        </div>
-    </Container>
-)
+    return (
+        <Container>
+            <Header>
+                <Square style={{backgroundColor: formCrew.color}} />
+                <HeaderText>{formCrew.name}</HeaderText>
+                <div>
+                    <select value={formCrew.status} onChange={HandleChange}>
+                        <option value="live">live</option>
+                        <option value="ejected">ejected</option>
+                        <option value="killed">killed</option>
+                    </select>
+                </div>
+            </Header>
+
+            <div>
+                <RangeSlider type="range" list="range-list"/>
+                <datalist id="range-list">
+                    <option value="0" />
+                    <option value="25" />
+                    <option value="50" />
+                    <option value="75" />
+                    <option value="100" />
+                </datalist>
+            </div>
+        </Container>
+    )
+}
 
 const Container = styled.li`
     list-style: none;
@@ -36,7 +59,8 @@ const Container = styled.li`
 `
 
 const Header = styled.div`
-    display: flex;
+    display: grid;
+    grid-template-columns: 40px 200px 60px;
 `
 
 const Square = styled.div`

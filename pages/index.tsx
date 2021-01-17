@@ -22,10 +22,9 @@ const IndexPage = () => {
     "cyan",
     "lime"
   ]
-
   const defaultCrews: Crew[] = []
   colors.forEach((color, index) => {
-      defaultCrews.push({color: color, name: color, inuse: true, index: index} as Crew)
+      defaultCrews.push({color: color, name: color, inuse: true, status: "live", index: index} as Crew)
   })
   const [crews, setCrews] = useState(defaultCrews)
 
@@ -55,7 +54,7 @@ const IndexPage = () => {
       <button onClick={openModal}>Config</button>
       <CrewsUl>
         {crews.map((crew) => (
-          crew.inuse ? <CrewCard color={crew.color} name={crew.name} key={crew.color} /> : ""
+          crew.inuse ? <CrewCard crew={crew} onChange={onChangeHandle} key={crew.color} /> : ""
         ))}
       </CrewsUl>
       <Modal
