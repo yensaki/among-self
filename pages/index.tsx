@@ -6,7 +6,6 @@ import CrewForm from '../components/CrewForm'
 import Crew from '../models/crew'
 import styled from 'styled-components'
 
-
 const IndexPage = () => {
   const colors = [
     "red",
@@ -50,8 +49,13 @@ const IndexPage = () => {
 
   return (
     <Layout title="Among Self">
-      <h1>Among Self</h1>
-      <button onClick={openModal}>Config</button>
+      <Header>
+        <h1>Among Self</h1>
+        <button>
+          <SettingImage src="/setting.svg" width="25px" onClick={openModal} />
+        </button>
+      </Header>
+
       <CrewsUl>
         {crews.map((crew) => (
           crew.inuse ? <CrewCard crew={crew} onChange={onChangeHandle} key={crew.color} /> : ""
@@ -73,6 +77,18 @@ const IndexPage = () => {
     </Layout>
   )
 }
+
+const Header = styled.head`
+  display: grid;
+  grid-template-columns: 1fr 45px;
+  right-margin: 10%;
+  padding: 15px;
+  margin: 0 20px;
+`
+
+const SettingImage = styled.img`
+  cursor: pointer;
+`
 
 const CrewsUl = styled.ul`
   display: flex;
