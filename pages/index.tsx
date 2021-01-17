@@ -1,6 +1,7 @@
 import Layout from '../components/Layout'
 import CrewCard from '../components/CrewCard'
 import { useState } from 'react'
+import Modal from 'react-modal'
 import CrewForm from '../components/CrewForm'
 import Crew from '../models/crew'
 
@@ -27,9 +28,6 @@ const IndexPage = () => {
   })
   const [crews, setCrews] = useState(defaultCrews)
 
-  const updateCrews = (updatedCrews: Crew[]) => {
-      setCrews(updatedCrews)
-  }
   const onChangeHandle = (changedCrew: Crew) => {
     const newCrews: Crew[] = []
     crews.forEach((crew) => {
@@ -42,23 +40,28 @@ const IndexPage = () => {
     setCrews(newCrews)
   }
 
-  const debugFuncton = () => {
-    const newCrews: Crew[] = []
-    colors.forEach((color, index) => {
-      newCrews.push({color: color, name: "ssssss", inuse: true, index: index} as Crew)
-    })
-    setCrews(newCrews)
+  const [modalIsOpen,setIsOpen] = useState(false)
+  const closeModal = () => {
+    setIsOpen(false)
+  }
+  const openModal = () => {
+    setIsOpen(true)
   }
 
   return (
     <Layout title="Among Self">
       <h1>Among Self</h1>
+      <button onClick={openModal}>Config</button>
       <ul>
         {crews.map((crew) => (
           crew.inuse ? <CrewCard color={crew.color} name={crew.name} key={crew.color} /> : ""
         ))}
       </ul>
-      <div >
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+      >
+        <button onClick={closeModal}>close</button>
         <form>
             <ul>
                 {crews.map((crew) => 
@@ -67,7 +70,7 @@ const IndexPage = () => {
             </ul>
             <input type="submit" value="決定" />
         </form>
-      </div>
+      </Modal>
     </Layout>
   )
 }
