@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useEffect } from 'react'
 import styled from 'styled-components'
 import Crew from '../models/crew'
 
@@ -18,7 +17,7 @@ const CrewCard = ({crew, onChange}: Props) => {
   }
   const [impostorRate, setImpostorRate] = useState(50)
   const HandleImpostorRateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setImpostorRate(e.target.value)
+    setImpostorRate(parseInt(e.target.value, 10))
   }
 
     return (
