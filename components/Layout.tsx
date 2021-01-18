@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react'
 import Head from 'next/head'
+import styled from 'styled-components'
 
 type Props = {
   children?: ReactNode
@@ -7,7 +8,7 @@ type Props = {
 }
 
 const Layout = ({ children, title = 'This is the default title' }: Props) => (
-  <div>
+  <Wrap>
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
@@ -16,18 +17,30 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
     <header>
     </header>
     {children}
-    <footer>
+    <Footer>
       <hr />
       <p>
         Among UsはInnerSloth社のゲームです。
         <br />
-        本サービスはInnerSloth社とは無関係の非公式サービスです
+        本サービス「Among Self」はInnerSloth社とは無関係の非公式サービスです
       </p>
       <p>
         powered by <a href="https://twitter.com/yensaki">yensaki</a>
       </p>
-    </footer>
-  </div>
+    </Footer>
+  </Wrap>
 )
+
+const Wrap = styled.div`
+  max-width: 1120px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+
+`
+
+const Footer = styled.footer`
+  margin: 0 0 0 30px;
+`
 
 export default Layout

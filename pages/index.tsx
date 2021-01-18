@@ -50,10 +50,12 @@ const IndexPage = () => {
   return (
     <Layout title="Among Self">
       <Header>
-        <h1>Among Self</h1>
-        <button>
-          <SettingImage src="/setting.svg" width="25px" onClick={openModal} />
-        </button>
+        <h1>
+          <img src="/logo.png" width="160px" />
+        </h1>
+        <ConfigButton onClick={openModal}>
+          <SettingImage src="/setting.svg" width="25px" />
+        </ConfigButton>
       </Header>
 
       <CrewsUl>
@@ -65,14 +67,14 @@ const IndexPage = () => {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
       >
-        <button onClick={closeModal}>close</button>
-        <form>
-            <CrewsUl>
-                {crews.map((crew) => 
-                  <CrewForm crew={crew} onChange={onChangeHandle} key={crew.index} />
-                )}
-            </CrewsUl>
-        </form>
+        <ConfigContainer>
+          <CrewsUl>
+              {crews.map((crew) => 
+                <CrewForm crew={crew} onChange={onChangeHandle} key={crew.index} />
+              )}
+          </CrewsUl>
+          <CloseButton onClick={closeModal}>close</CloseButton>
+        </ConfigContainer>
       </Modal>
     </Layout>
   )
@@ -80,8 +82,9 @@ const IndexPage = () => {
 
 const Header = styled.head`
   display: grid;
-  grid-template-columns: 1fr 45px;
-  right-margin: 10%;
+  grid-template-columns: 1fr 64px;
+  max-width: 1080px;
+  margin: 0 10%;
   padding: 15px;
   margin: 0 20px;
 `
@@ -90,9 +93,29 @@ const SettingImage = styled.img`
   cursor: pointer;
 `
 
+const ConfigButton = styled.button`
+  cursor: pointer;
+  margin: 0 12px;
+  max-hight: 64px;
+  min-width: 64px;
+`
+
+const ConfigContainer = styled.div`
+  display: grid;
+  place-items: center;
+`
+
 const CrewsUl = styled.ul`
   display: flex;
   flex-wrap: wrap;
+`
+
+const CloseButton = styled.button`
+  cursor: pointer;
+  margin: 0 12px;
+  padding: 16px;
+  width: 120px;
+  font-size: 18px;
 `
 
 // type CrewProps = {
