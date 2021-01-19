@@ -21,7 +21,7 @@ const CrewCard = ({crew, onChange}: Props) => {
   }
 
     return (
-        <Container style={{backgroundColor: `hsl(0,0%,${100 - (70 * impostorRate / 100)}%)`}}>
+        <Container style={{backgroundColor: `hsl(0,0%,${100 - 0.01*(impostorRate**2)}%)`}}>
             <Header>
                 <Square style={{backgroundColor: formCrew.color}} />
                 <HeaderText>{formCrew.name}</HeaderText>
