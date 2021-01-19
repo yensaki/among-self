@@ -33,7 +33,7 @@ const CrewForm = ({crew, onChange}: CrewProps) => {
 const FormList = styled.li`
     display: flex;
     list-style: none;
-    width: 280px;
+    width: 200px;
     height: 60px;
     border: 1px solid #cee2f0;
     border-radius: 5px 5px;
@@ -51,7 +51,7 @@ const Square = styled.div`
 `
 
 const NameField = styled.input`
-    width: 200px;
+    width: 140px;
     height: 30px;
 `
 
