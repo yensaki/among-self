@@ -21,8 +21,6 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
       <meta property="og:description" content="Among Usのプレイメモ用の非公式サイト" />
       <meta name="twitter:card" content="summary" />
     </Head>
-    <header>
-    </header>
     {children}
     <Footer>
       <hr />

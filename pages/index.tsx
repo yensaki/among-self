@@ -80,7 +80,7 @@ const IndexPage = () => {
   )
 }
 
-const Header = styled.head`
+const Header = styled.div`
   display: grid;
   grid-template-columns: 1fr 64px;
   max-width: 1080px;
