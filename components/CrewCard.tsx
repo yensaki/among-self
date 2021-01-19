@@ -21,7 +21,7 @@ const CrewCard = ({crew, onChange}: Props) => {
   }
 
     return (
-        <Container style={{backgroundColor: `hsl(0,0%,${100 - 0.01*(impostorRate**2)}%)`}}>
+        <Container>
             <Header>
                 <Square style={{backgroundColor: formCrew.color}} />
                 <HeaderText>{formCrew.name}</HeaderText>
@@ -34,7 +34,7 @@ const CrewCard = ({crew, onChange}: Props) => {
                 </div>
             </Header>
 
-            <div>
+            <RangeContainer style={{backgroundColor: `hsl(0,0%,${100 - 0.01*(impostorRate**2)}%)`}}>
                 <RangeSlider type="range" list="range-list" onChange={HandleImpostorRateChange}/>
                 <datalist id="range-list">
                     <option value="0" />
@@ -43,7 +43,7 @@ const CrewCard = ({crew, onChange}: Props) => {
                     <option value="75" />
                     <option value="100" />
                 </datalist>
-            </div>
+            </RangeContainer>
         </Container>
     )
 }
@@ -74,6 +74,12 @@ const HeaderText = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+`
+
+const RangeContainer = styled.div`
+    border: 2px solid #cee2f0;
+    border-radius: 5px;
+    padding: 5px;
 `
 
 const RangeSlider = styled.input`
