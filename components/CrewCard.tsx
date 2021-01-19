@@ -26,11 +26,11 @@ const CrewCard = ({crew, onChange}: Props) => {
                 <Square style={{backgroundColor: formCrew.color}} />
                 <HeaderText>{formCrew.name}</HeaderText>
                 <div>
-                    <select value={formCrew.status} onChange={HandleChange}>
-                        <option value="live">live</option>
-                        <option value="ejected">ejected</option>
-                        <option value="killed">killed</option>
-                    </select>
+                    <StatusSelect value={formCrew.status} onChange={HandleChange}>
+                        <option value="live" label="LIVE"/>
+                        <option value="ejected" label="EJECTED"/>
+                        <option value="killed" label="KILLED"/>
+                    </StatusSelect>
                 </div>
             </Header>
 
@@ -59,7 +59,7 @@ const Container = styled.li`
 
 const Header = styled.div`
     display: grid;
-    grid-template-columns: 40px 200px 60px;
+    grid-template-columns: 40px 180px 80px;
 `
 
 const Square = styled.div`
@@ -74,6 +74,12 @@ const HeaderText = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+`
+
+const StatusSelect = styled.select`
+    height: 32px;
+    borderRadius: 5px;
+    margin: 5px;
 `
 
 const RangeContainer = styled.div`
