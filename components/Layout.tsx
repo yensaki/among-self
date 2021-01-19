@@ -13,6 +13,13 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
       <title>{title}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <meta property="og:title" content="Among Self" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://amongself.com" />
+      <meta property="og:image" content="https://amongself.com/logo.png" />
+      <meta property="og:site_name" content="Among Self" />
+      <meta property="og:description" content="Among Usのプレイメモ用の非公式サイト" />
+      <meta name="twitter:card" content="summary" />
     </Head>
     <header>
     </header>
