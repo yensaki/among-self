@@ -55,7 +55,7 @@ const IndexPage = () => {
         </LogoHeading>
         <div>
           <ConfigButton onClick={openModal}>
-            <SettingImage src="/setting.svg" width="16px" />
+            <SettingImage src="/setting.svg" width="32px" />
           </ConfigButton>
         </div>
       </Header>
