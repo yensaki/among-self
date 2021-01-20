@@ -50,12 +50,14 @@ const IndexPage = () => {
   return (
     <Layout title="Among Self">
       <Header>
-        <h1>
+        <LogoHeading>
           <img src="/logo.png" width="160px" />
-        </h1>
-        <ConfigButton onClick={openModal}>
-          <SettingImage src="/setting.svg" width="25px" />
-        </ConfigButton>
+        </LogoHeading>
+        <div>
+          <ConfigButton onClick={openModal}>
+            <SettingImage src="/setting.svg" width="16px" />
+          </ConfigButton>
+        </div>
       </Header>
 
       <CrewsUl>
@@ -82,11 +84,17 @@ const IndexPage = () => {
 
 const Header = styled.div`
   display: grid;
-  grid-template-columns: 1fr 64px;
+  grid-template-columns: 1fr 72px;
   max-width: 1080px;
-  margin: 0 10%;
+  padding: 0 10%;
   padding: 15px;
   margin: 0 20px;
+  height: 82px;
+  border-bottom: solid 2px #cee2f0;
+`
+
+const LogoHeading = styled.h1`
+  margin: auto 0;
 `
 
 const SettingImage = styled.img`
@@ -95,9 +103,9 @@ const SettingImage = styled.img`
 
 const ConfigButton = styled.button`
   cursor: pointer;
-  margin: 24px;
-  max-hight: 64px;
-  min-width: 64px;
+  margin: 18px 6px;
+  width: 64px;
+  height: 64px;
 `
 
 const ConfigContainer = styled.div`
