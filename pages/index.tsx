@@ -95,7 +95,7 @@ const SettingImage = styled.img`
 
 const ConfigButton = styled.button`
   cursor: pointer;
-  margin: 0 12px;
+  margin: 24px;
   max-hight: 64px;
   min-width: 64px;
 `
