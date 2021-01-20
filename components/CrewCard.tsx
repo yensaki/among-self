@@ -77,6 +77,7 @@ const HeaderText = styled.div`
 `
 
 const StatusSelect = styled.select`
+    cursor: pointer;
     height: 32px;
     borderRadius: 5px;
     margin: 5px;
