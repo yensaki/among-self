@@ -16,9 +16,9 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
       <meta property="og:title" content="Among Self" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://amongself.com" />
-      <meta property="og:image" content="https://amongself.com/logo.png" />
+      <meta property="og:image" content="https://amongself.com/logo_square.png" />
       <meta property="og:site_name" content="Among Self" />
-      <meta property="og:description" content="Among Usのプレイメモ用の非公式サイト" />
+      <meta property="og:description" content="Among Usプレイで使うメモ(非公式)。インポスター度合いを記録しておけます" />
       <meta name="twitter:card" content="summary" />
     </Head>
     {children}
