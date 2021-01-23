@@ -22,7 +22,7 @@ const CrewCard = ({crew, onChange}: Props) => {
     setImpostorRate(parseInt(e.target.value, 10))
   }
 
-  const [isShrinked, setIsShrinked] = useState(false)
+  const [isShrinked, setIsShrinked] = useState(true)
   const onToggleClick = () => {
     setIsShrinked(!isShrinked)
   }
@@ -44,7 +44,7 @@ const CrewCard = ({crew, onChange}: Props) => {
                             </StatusSelect>
                         </div>
                     )}
-                    <button onClick={onToggleClick}>＜</button>
+                    <ShrinkButton onClick={onToggleClick}>{isShrinked ? "＞" : "＜"}</ShrinkButton>
                 </Header>
                 {!isShrinked && (
                     <RangeContainer>
@@ -98,9 +98,11 @@ const StatusSelect = styled.select`
     margin: 5px;
 `
 
+const ShrinkButton = styled.button`
+    cursor: pointer;
+`
+
 const RangeContainer = styled.div`
-    border: 2px solid #cee2f0;
-    border-radius: 5px;
     padding: 5px;
 `
 

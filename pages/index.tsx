@@ -81,13 +81,13 @@ const IndexPage = () => {
           <p>Among Usのメモとしてお使いください</p>
       </Header>
 
-      <div style={{backgroundImage: `url(${backgroundImage})`}}>
+      <BackgroundContainer style={{backgroundImage: `url(${backgroundImage})`}}>
         <CrewsUl>
           {crews.map((crew) => (
             crew.inuse ? <CrewCard crew={crew} onChange={onChangeHandle} key={crew.color} /> : ""
           ))}
         </CrewsUl>
-      </div>
+      </BackgroundContainer>
 
       <Modal
         isOpen={modalIsOpen}
@@ -136,6 +136,10 @@ const ConfigButton = styled.button`
 const ConfigContainer = styled.div`
   display: grid;
   place-items: center;
+`
+
+const BackgroundContainer = styled.div`
+  background-size: cover;
 `
 
 const CrewsUl = styled.ul`
