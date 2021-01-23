@@ -18,6 +18,7 @@ const CrewCard = ({crew, onChange}: Props) => {
   }
   const [impostorRate, setImpostorRate] = useState(50)
   const HandleImpostorRateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.nativeEvent.preventDefault()
     setImpostorRate(parseInt(e.target.value, 10))
   }
 

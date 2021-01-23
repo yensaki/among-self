@@ -47,6 +47,25 @@ const IndexPage = () => {
     setIsOpen(true)
   }
 
+  const [backgroundImage, setBackgroundImage] = useState("")
+  const onChangeImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e)
+    const reader = new FileReader()
+    reader.addEventListener("load", () => {
+      if (typeof reader.result == "string") {
+        setBackgroundImage(reader.result)
+      }
+    }, false);
+
+    const files = e.target.files
+    if (files && files[0]) {
+      const file = files[0]
+      if (file) {
+        reader.readAsDataURL(file)
+      }
+    }
+  }
+
   return (
     <Layout title="Among Self">
       <Header>
@@ -60,11 +79,14 @@ const IndexPage = () => {
         </div>
       </Header>
 
-      <CrewsUl>
-        {crews.map((crew) => (
-          crew.inuse ? <CrewCard crew={crew} onChange={onChangeHandle} key={crew.color} /> : ""
-        ))}
-      </CrewsUl>
+      <div style={{backgroundImage: `url(${backgroundImage})`}}>
+        <CrewsUl>
+          {crews.map((crew) => (
+            crew.inuse ? <CrewCard crew={crew} onChange={onChangeHandle} key={crew.color} /> : ""
+          ))}
+        </CrewsUl>
+      </div>
+
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -75,6 +97,7 @@ const IndexPage = () => {
                 <CrewForm crew={crew} onChange={onChangeHandle} key={crew.index} />
               )}
           </CrewsUl>
+          <input type="file" name="file" onChange={onChangeImage}/>
           <CloseButton onClick={closeModal}>close</CloseButton>
         </ConfigContainer>
       </Modal>
