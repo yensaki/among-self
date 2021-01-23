@@ -22,31 +22,42 @@ const CrewCard = ({crew, onChange}: Props) => {
     setImpostorRate(parseInt(e.target.value, 10))
   }
 
+  const [isShrinked, setIsShrinked] = useState(false)
+  const onToggleClick = () => {
+    setIsShrinked(!isShrinked)
+  }
+
     return (
         <Draggable>
             <Container style={{backgroundColor: `hsl(0,0%,${100 - 0.001*(impostorRate**2.5)}%)`}}>
                 <Header>
                     <Square style={{backgroundColor: formCrew.color}} />
-                    <HeaderText>{formCrew.name}</HeaderText>
-                    <div>
-                        <StatusSelect value={formCrew.status} onChange={HandleChange}>
-                            <option value="live" label="LIVE"/>
-                            <option value="ejected" label="EJECTED"/>
-                            <option value="killed" label="KILLED"/>
-                        </StatusSelect>
-                    </div>
+                    {!isShrinked && (
+                        <HeaderText>{formCrew.name}</HeaderText>
+                    )}
+                    {!isShrinked && (
+                        <div>
+                            <StatusSelect value={formCrew.status} onChange={HandleChange}>
+                                <option value="live" label="LIVE"/>
+                                <option value="ejected" label="EJECTED"/>
+                                <option value="killed" label="KILLED"/>
+                            </StatusSelect>
+                        </div>
+                    )}
+                    <button onClick={onToggleClick}>＜</button>
                 </Header>
-
-                <RangeContainer>
-                    <RangeSlider type="range" list="range-list" onChange={HandleImpostorRateChange}/>
-                    <datalist id="range-list">
-                        <option value="0" />
-                        <option value="25" />
-                        <option value="50" />
-                        <option value="75" />
-                        <option value="100" />
-                    </datalist>
-                </RangeContainer>
+                {!isShrinked && (
+                    <RangeContainer>
+                        <RangeSlider type="range" list="range-list" onChange={HandleImpostorRateChange}/>
+                        <datalist id="range-list">
+                            <option value="0" />
+                            <option value="25" />
+                            <option value="50" />
+                            <option value="75" />
+                            <option value="100" />
+                        </datalist>
+                    </RangeContainer>
+                )}
             </Container>
         </Draggable>
     )
@@ -54,7 +65,6 @@ const CrewCard = ({crew, onChange}: Props) => {
 
 const Container = styled.li`
     list-style: none;
-    width: 320px;
     border: 1px solid #cee2f0;
     border-radius: 5px 5px;
     margin: 10px;
@@ -63,7 +73,7 @@ const Container = styled.li`
 
 const Header = styled.div`
     display: grid;
-    grid-template-columns: 40px 180px 80px;
+    grid-template-columns: 40px auto auto auto;
 `
 
 const Square = styled.div`
@@ -78,6 +88,7 @@ const HeaderText = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 140px;
 `
 
 const StatusSelect = styled.select`
