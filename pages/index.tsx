@@ -77,6 +77,9 @@ const IndexPage = () => {
           </ConfigButton>
         </div>
       </Header>
+      <Header>
+          <p>Among Usのメモとしてお使いください</p>
+      </Header>
 
       <div style={{backgroundImage: `url(${backgroundImage})`}}>
         <CrewsUl>
