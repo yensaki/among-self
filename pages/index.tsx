@@ -49,7 +49,6 @@ const IndexPage = () => {
 
   const [backgroundImage, setBackgroundImage] = useState("")
   const onChangeImage = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e)
     const reader = new FileReader()
     reader.addEventListener("load", () => {
       if (typeof reader.result == "string") {
