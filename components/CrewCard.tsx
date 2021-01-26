@@ -22,12 +22,6 @@ const CrewCard = ({crew, onChange}: Props) => {
     e.nativeEvent.preventDefault()
     setImpostorRate(parseInt(e.target.value, 10))
   }
-
-  const [isShrinked, setIsShrinked] = useState(true)
-  const onToggleClick = () => {
-    setIsShrinked(!isShrinked)
-  }
-
     return (
         <Draggable>
             <Container style={{backgroundColor: `hsl(0,0%,${100 - 0.001*(impostorRate**2.5)}%)`}}>
@@ -108,10 +102,6 @@ const StatusSelect = styled.select`
     height: 32px;
     borderRadius: 5px;
     margin: 5px;
-`
-
-const ShrinkButton = styled.button`
-    cursor: pointer;
 `
 
 const RangeContainer = styled.div`
