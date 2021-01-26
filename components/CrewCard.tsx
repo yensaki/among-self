@@ -63,6 +63,7 @@ const Container = styled.li`
     border-radius: 5px 5px;
     margin: 10px;
     padding: 5px;
+    cursor: grab;
 `
 
 const Header = styled.div`
