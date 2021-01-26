@@ -47,23 +47,23 @@ const IndexPage = () => {
     setIsOpen(true)
   }
 
-  const [backgroundImage, setBackgroundImage] = useState("")
-  const onChangeImage = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const reader = new FileReader()
-    reader.addEventListener("load", () => {
-      if (typeof reader.result == "string") {
-        setBackgroundImage(reader.result)
-      }
-    }, false);
+  // const [backgroundImage, setBackgroundImage] = useState("")
+  // const onChangeImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const reader = new FileReader()
+  //   reader.addEventListener("load", () => {
+  //     if (typeof reader.result == "string") {
+  //       setBackgroundImage(reader.result)
+  //     }
+  //   }, false);
 
-    const files = e.target.files
-    if (files && files[0]) {
-      const file = files[0]
-      if (file) {
-        reader.readAsDataURL(file)
-      }
-    }
-  }
+  //   const files = e.target.files
+  //   if (files && files[0]) {
+  //     const file = files[0]
+  //     if (file) {
+  //       reader.readAsDataURL(file)
+  //     }
+  //   }
+  // }
 
   return (
     <Layout title="Among Self">
@@ -81,7 +81,7 @@ const IndexPage = () => {
           <p>Among Usのメモとしてお使いください</p>
       </Header>
 
-      <BackgroundContainer style={{backgroundImage: `url(${backgroundImage})`}}>
+      <BackgroundContainer>
         <CrewsUl>
           {crews.map((crew) => (
             crew.inuse ? <CrewCard crew={crew} onChange={onChangeHandle} key={crew.color} /> : ""
