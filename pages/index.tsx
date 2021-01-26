@@ -99,7 +99,7 @@ const IndexPage = () => {
                 <CrewForm crew={crew} onChange={onChangeHandle} key={crew.index} />
               )}
           </CrewsUl>
-          <input type="file" name="file" onChange={onChangeImage}/>
+          {/* <input type="file" name="file" onChange={onChangeImage}/> */}
           <CloseButton onClick={closeModal}>close</CloseButton>
         </ConfigContainer>
       </Modal>
