@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Draggable from 'react-draggable'
 import styled from 'styled-components'
 import Crew from '../models/crew'
+import Popup from 'reactjs-popup'
 
 type Props = {
   crew: Crew,
@@ -32,38 +33,37 @@ const CrewCard = ({crew, onChange}: Props) => {
             <Container style={{backgroundColor: `hsl(0,0%,${100 - 0.001*(impostorRate**2.5)}%)`}}>
                 <Header>
                     <Square style={{backgroundColor: formCrew.color}} />
-                    {!isShrinked && (
-                        <HeaderText>{formCrew.name}</HeaderText>
-                    )}
-                    {!isShrinked && (
-                        <div>
-                            <StatusSelect value={formCrew.status} onChange={HandleChange}>
-                                <option value="live" label="LIVE"/>
-                                <option value="ejected" label="EJECTED"/>
-                                <option value="killed" label="KILLED"/>
-                            </StatusSelect>
-                        </div>
-                    )}
-                    <ShrinkButton onClick={onToggleClick}>{isShrinked ? "＞" : "＜"}</ShrinkButton>
                 </Header>
-                {!isShrinked && (
-                    <RangeContainer>
+                <Popup trigger={<TriggerButton>⌄</TriggerButton>} position="bottom center">
+                    <PopupModal style={{backgroundColor: `hsl(0,0%,${100 - 0.001*(impostorRate**2.5)}%)`}}>
+                        <HeaderText>{formCrew.name}</HeaderText>
+                        <StatusSelect value={formCrew.status} onChange={HandleChange}>
+                            <option value="live" label="LIVE"/>
+                            <option value="ejected" label="EJECTED"/>
+                            <option value="killed" label="KILLED"/>
+                        </StatusSelect>
+                        <RangeContainer>
                         <RangeSlider type="range" list="range-list" onChange={HandleImpostorRateChange}/>
-                        <datalist id="range-list">
-                            <option value="0" />
-                            <option value="25" />
-                            <option value="50" />
-                            <option value="75" />
-                            <option value="100" />
-                        </datalist>
-                    </RangeContainer>
-                )}
+                            <datalist id="range-list">
+                                <option value="0" />
+                                <option value="25" />
+                                <option value="50" />
+                                <option value="75" />
+                                <option value="100" />
+                            </datalist>
+                        </RangeContainer>
+                    </PopupModal>
+                </Popup>
             </Container>
         </Draggable>
     )
 }
 
 const Container = styled.li`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     list-style: none;
     border: 1px solid #cee2f0;
     border-radius: 5px 5px;
@@ -74,6 +74,16 @@ const Container = styled.li`
 const Header = styled.div`
     display: grid;
     grid-template-columns: 40px auto auto auto;
+`
+
+const PopupModal = styled.div`
+    border: 1px solid #cee2f0;
+    border-radius: 5px 5px;
+`
+
+const TriggerButton = styled.button`
+    padding: 7px;
+    cursor: pointer;
 `
 
 const Square = styled.div`
