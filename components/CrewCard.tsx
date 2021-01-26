@@ -82,8 +82,10 @@ const PopupModal = styled.div`
 `
 
 const TriggerButton = styled.button`
-    padding: 7px;
+    padding: 3px 5px;
     cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2em;
 `
 
 const Square = styled.div`
