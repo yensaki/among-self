@@ -19,7 +19,7 @@ const CrewCard = ({crew, onChange}: Props) => {
   }
   const [impostorRate, setImpostorRate] = useState(50)
   const HandleImpostorRateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.nativeEvent.preventDefault()
+    e.stopPropagation()
     setImpostorRate(parseInt(e.target.value, 10))
   }
     return (
@@ -37,7 +37,7 @@ const CrewCard = ({crew, onChange}: Props) => {
                             <option value="killed" label="KILLED"/>
                         </StatusSelect>
                         <RangeContainer>
-                        <RangeSlider type="range" list="range-list" onChange={HandleImpostorRateChange}/>
+                            <input type="range" list="range-list" onChange={HandleImpostorRateChange}/>
                             <datalist id="range-list">
                                 <option value="0" />
                                 <option value="25" />
@@ -106,10 +106,6 @@ const StatusSelect = styled.select`
 
 const RangeContainer = styled.div`
     padding: 5px;
-`
-
-const RangeSlider = styled.input`
-    width: 100%;
 `
 
 export default CrewCard
