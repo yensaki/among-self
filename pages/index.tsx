@@ -81,8 +81,16 @@ const IndexPage = () => {
           <p>Among Usのメモとしてお使いください</p>
       </Header>
 
+      <Header>
+        <input type="file" name="file" onChange={onChangeImage}/>
+      </Header>
+
       <BackgroundContainer>
-        <BackgroundImg src={backgroundImage} />
+        {backgroundImage ?
+          <BackgroundImg src={backgroundImage} />
+          : <p>マップ画像を読み込み</p>
+        }
+
         <CrewsUl>
           {crews.map((crew) => (
             crew.inuse ? <CrewCard crew={crew} onChange={onChangeHandle} key={crew.color} /> : ""
@@ -100,7 +108,6 @@ const IndexPage = () => {
                 <CrewForm crew={crew} onChange={onChangeHandle} key={crew.index} />
               )}
           </CrewsUl>
-          <input type="file" name="file" onChange={onChangeImage}/>
           <CloseButton onClick={closeModal}>close</CloseButton>
         </ConfigContainer>
       </Modal>
@@ -143,11 +150,12 @@ const BackgroundContainer = styled.div`
   background-size: cover;
   min-height: 640px;
   position: relative;
+  margin: 32px 0 32px 0;
 `
 
 const BackgroundImg = styled.img`
   position: absolute;
-  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
   opacity: 0.5;
