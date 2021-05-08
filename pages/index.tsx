@@ -140,6 +140,7 @@ const ConfigContainer = styled.div`
 
 const BackgroundContainer = styled.div`
   background-size: cover;
+  min-height: 640px;
 `
 
 const CrewsUl = styled.ul`
