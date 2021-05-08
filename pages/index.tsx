@@ -47,23 +47,23 @@ const IndexPage = () => {
     setIsOpen(true)
   }
 
-  // const [backgroundImage, setBackgroundImage] = useState("")
-  // const onChangeImage = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const reader = new FileReader()
-  //   reader.addEventListener("load", () => {
-  //     if (typeof reader.result == "string") {
-  //       setBackgroundImage(reader.result)
-  //     }
-  //   }, false);
+  const [backgroundImage, setBackgroundImage] = useState("")
+  const onChangeImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const reader = new FileReader()
+    reader.addEventListener("load", () => {
+      if (typeof reader.result == "string") {
+        setBackgroundImage(reader.result)
+      }
+    }, false);
 
-  //   const files = e.target.files
-  //   if (files && files[0]) {
-  //     const file = files[0]
-  //     if (file) {
-  //       reader.readAsDataURL(file)
-  //     }
-  //   }
-  // }
+    const files = e.target.files
+    if (files && files[0]) {
+      const file = files[0]
+      if (file) {
+        reader.readAsDataURL(file)
+      }
+    }
+  }
 
   return (
     <Layout title="Among Self">
@@ -82,6 +82,7 @@ const IndexPage = () => {
       </Header>
 
       <BackgroundContainer>
+        <BackgroundImg src={backgroundImage} />
         <CrewsUl>
           {crews.map((crew) => (
             crew.inuse ? <CrewCard crew={crew} onChange={onChangeHandle} key={crew.color} /> : ""
@@ -99,7 +100,7 @@ const IndexPage = () => {
                 <CrewForm crew={crew} onChange={onChangeHandle} key={crew.index} />
               )}
           </CrewsUl>
-          {/* <input type="file" name="file" onChange={onChangeImage}/> */}
+          <input type="file" name="file" onChange={onChangeImage}/>
           <CloseButton onClick={closeModal}>close</CloseButton>
         </ConfigContainer>
       </Modal>
@@ -141,6 +142,15 @@ const ConfigContainer = styled.div`
 const BackgroundContainer = styled.div`
   background-size: cover;
   min-height: 640px;
+  position: relative;
+`
+
+const BackgroundImg = styled.img`
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
 `
 
 const CrewsUl = styled.ul`
