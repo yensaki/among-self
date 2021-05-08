@@ -25,9 +25,7 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
     <Footer>
       <hr />
       <p>
-        Among UsはInnerSloth社のゲームです。
-        <br />
-        本サービス「Among Self」はInnerSloth社とは無関係の非公式サービスです
+        「Among Self」は非公式のWebサービスです。
       </p>
       <p>
         powered by <a href="https://twitter.com/yensaki">yensaki</a>

@@ -78,7 +78,7 @@ const IndexPage = () => {
         </div>
       </Header>
       <Header>
-          <p>Among Usのメモとしてお使いください</p>
+          <p>Among Us Note for yourself</p>
       </Header>
 
       <Header>
