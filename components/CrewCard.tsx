@@ -28,7 +28,15 @@ const CrewCard = ({crew, onChange}: Props) => {
                 <Header>
                     <Square style={{backgroundColor: formCrew.color}} />
                 </Header>
-                <Popup trigger={<TriggerButton>⌄</TriggerButton>} on={['hover', 'focus']} position="bottom center">
+                <Popup
+                    trigger={
+                        <TriggerButton>
+                            -
+                        </TriggerButton>
+                    }
+                    on={['hover', 'focus']}
+                    position="bottom center"
+                >
                     <PopupModal style={{backgroundColor: `hsl(0,0%,${100 - 0.001*(impostorRate**2.5)}%)`}}>
                         <HeaderText>{formCrew.name}</HeaderText>
                         <StatusSelect value={formCrew.status} onChange={HandleChange}>
@@ -77,10 +85,10 @@ const PopupModal = styled.div`
 `
 
 const TriggerButton = styled.button`
-    padding: 3px 5px;
+    margin: 10px 3px 3px 3px;
     cursor: pointer;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.1em;
 `
 
 const Square = styled.div`
