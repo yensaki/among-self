@@ -28,7 +28,7 @@ const CrewCard = ({crew, onChange}: Props) => {
                 <Header>
                     <Square style={{backgroundColor: formCrew.color}} />
                 </Header>
-                <Popup trigger={<TriggerButton>⌄</TriggerButton>} position="bottom center">
+                <Popup trigger={<TriggerButton>⌄</TriggerButton>} on={['hover', 'focus']} position="bottom center">
                     <PopupModal style={{backgroundColor: `hsl(0,0%,${100 - 0.001*(impostorRate**2.5)}%)`}}>
                         <HeaderText>{formCrew.name}</HeaderText>
                         <StatusSelect value={formCrew.status} onChange={HandleChange}>
