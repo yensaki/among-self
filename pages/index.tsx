@@ -19,7 +19,10 @@ const IndexPage = () => {
     "purple",
     "brown",
     "cyan",
-    "lime"
+    "lime",
+    "gray",
+    "maroon",
+    "coral",
   ]
   const defaultCrews: Crew[] = []
   colors.forEach((color, index) => {
