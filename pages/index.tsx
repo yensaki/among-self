@@ -5,24 +5,28 @@ import Modal from 'react-modal'
 import CrewForm from '../components/CrewForm'
 import Crew from '../models/crew'
 import styled from 'styled-components'
+import { generateKeyPair } from 'crypto'
 
 const IndexPage = () => {
   const colors = [
-    "red",
-    "blue",
-    "green",
-    "pink",
-    "orange",
-    "yellow",
-    "black",
-    "white",
-    "purple",
-    "brown",
-    "cyan",
-    "lime",
-    "gray",
-    "maroon",
-    "coral",
+    "#D71E22", // red
+    "#1D3CE9", // blue
+    "#1B913E", // green
+    "#ED54BA", // pink
+    "#FF8D1C", // orange
+    "#FFFF67", // yellow
+    "#3F474E", // black
+    "#D6E0F0", // white
+    "#6B31BC", // purple
+    "#71491E", // brown
+    "#44FDF5", // cyan
+    "#50EF39", // lime
+    "#731B13", // maroon
+    "#ECC0D3", // rose
+    "#FFFDBE", // banana
+    "#708497", // gray
+    "#928776", // tan
+    "#EC7578", // coral
   ]
   const defaultCrews: Crew[] = []
   colors.forEach((color, index) => {
