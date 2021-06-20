@@ -177,7 +177,7 @@ const BackgroundImg = styled.img`
   height: 100%;
   top: 0;
   left: 0;
-  opacity: 0.5;
+  opacity: 0.25;
 `
 
 const CrewsUl = styled.ul`
