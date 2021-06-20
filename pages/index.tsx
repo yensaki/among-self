@@ -83,18 +83,21 @@ const IndexPage = () => {
           </ConfigButton>
         </div>
       </Header>
-      <Header>
+      <Box>
           <p>Among Us Note for yourself</p>
-      </Header>
+      </Box>
 
-      <Header>
-        <input type="file" name="file" onChange={onChangeImage}/>
-      </Header>
+      <Box>
+        <div>マップ画像を背景にする</div>
+        <div>
+          <input type="file" name="file" onChange={onChangeImage}/>
+        </div>
+      </Box>
 
       <BackgroundContainer>
         {backgroundImage ?
           <BackgroundImg src={backgroundImage} />
-          : <p>マップ画像を読み込み</p>
+          : ""
         }
 
         <CrewsUl>
@@ -120,6 +123,16 @@ const IndexPage = () => {
     </Layout>
   )
 }
+
+const Box = styled.div`
+  display: grid;
+  max-width: 1080px;
+  padding: 0 10%;
+  padding: 15px;
+  margin: 0 20px;
+  height: 82px;
+  border-bottom: solid 2px #cee2f0;
+`
 
 const Header = styled.div`
   display: grid;
