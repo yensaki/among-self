@@ -5,7 +5,6 @@ import Modal from 'react-modal'
 import CrewForm from '../components/CrewForm'
 import Crew from '../models/crew'
 import styled from 'styled-components'
-import { generateKeyPair } from 'crypto'
 
 const IndexPage = () => {
   const colors = [
