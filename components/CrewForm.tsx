@@ -22,7 +22,7 @@ const CrewForm = ({crew, onChange}: CrewProps) => {
     onChange(newCrew)
   }
   return (
-      <FormList style={{backgroundColor: formCrew.inuse ? "white" : "gray"}}>
+      <FormList style={{backgroundColor: formCrew.inuse ? "#cce6ff" : "gray"}}>
           <Square onClick={HandleClickInUse} style={{backgroundColor: formCrew.color}} />
           <NameField type="text" name="name" value={formCrew.name} onChange={(e) => HandleChangeText(e)} />
       </FormList>

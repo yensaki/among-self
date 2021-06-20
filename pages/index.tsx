@@ -29,7 +29,7 @@ const IndexPage = () => {
   ]
   const defaultCrews: Crew[] = []
   colors.forEach((color, index) => {
-      defaultCrews.push({color: color, name: color, inuse: true, status: "live", index: index} as Crew)
+      defaultCrews.push({color: color, name: "", inuse: true, status: "live", index: index} as Crew)
   })
   const [crews, setCrews] = useState(defaultCrews)
 
@@ -183,6 +183,7 @@ const BackgroundImg = styled.img`
 const CrewsUl = styled.ul`
   display: flex;
   flex-wrap: wrap;
+  padding: 0 50px 0 50px;
 `
 
 const CloseButton = styled.button`

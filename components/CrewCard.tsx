@@ -69,7 +69,7 @@ const Container = styled.li`
     list-style: none;
     border: 1px solid #cee2f0;
     border-radius: 5px 5px;
-    margin: 10px;
+    margin: 25px;
     padding: 5px;
     cursor: grab;
 `
