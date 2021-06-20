@@ -28,8 +28,12 @@ const CrewCard = ({crew, onChange}: Props) => {
                 <Header>
                     {
                         formCrew.status == "killed" ?
-                        <DeadImage src="/dead_body.png" style={{backgroundColor: formCrew.color}}/> :
-                        <Square style={{backgroundColor: formCrew.color}} />
+                        <KilledImage src="/dead_body.png" style={{backgroundColor: formCrew.color}}/> :
+                        (formCrew.status == "ejected" ?
+                            <EjectedImage src="/ejected.png" style={{backgroundColor: formCrew.color}}/> :
+                            <Square style={{backgroundColor: formCrew.color}} />
+                        )
+
                     }
                 </Header>
                 <Popup
@@ -103,7 +107,15 @@ const Square = styled.div`
     margin: 5px;    
 `
 
-const DeadImage = styled.img`
+const KilledImage = styled.img`
+    border: 2px solid #cee2f0;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+`
+
+const EjectedImage = styled.img`
     border: 2px solid #cee2f0;
     border-radius: 5px;
     width: 30px;
